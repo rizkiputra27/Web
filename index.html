@@ -27,6 +27,15 @@
       opacity: 1;
       transform: translateY(0);
     }
+    @keyframes marquee {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .animate-marquee {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+  }
   </style>
 </head>
 <body>
@@ -48,6 +57,14 @@
     <h2 class="text-4xl font-bold mb-4">Selamat Datang di ADG CELL</h2>
     <p class="text-lg">Pusat Pulsa, Kuota, dan Aksesoris HP Terlengkap & Termurah</p>
   </section>
+
+  <div class="bg-yellow-300 py-2 overflow-hidden relative">
+  <div class="animate-marquee whitespace-nowrap font-semibold text-pink-800 text-center">
+    🎉 Promo Spesial Minggu Ini: Top Up E-Wallet Tanpa Admin! &nbsp;&nbsp;&nbsp;
+    💥 Pulsa Telkomsel Diskon Rp 2.000! &nbsp;&nbsp;&nbsp;
+    📢 Tersedia Casing HP Lucu Mulai Rp 20.000!
+  </div>
+</div>
 
   <section id="katalog" class="py-12 container mx-auto fade-in px-4">
     <h3 class="text-2xl font-semibold mb-6 text-center text-pink-600">Katalog Produk</h3>
@@ -77,7 +94,7 @@
 
   <section id="harga-pulsa" class="py-12 bg-gradient-to-b from-yellow-200 to-pink-100 fade-in px-4">
     <div class="container mx-auto">
-      <h3 class="text-2xl font-semibold mb-6 text-center text-pink-600">Daftar Admin pulsa dan E-wallet Adg Cell</h3>
+      <h3 class="text-2xl font-semibold mb-6 text-center text-pink-600">Daftar Harga Pulsa & Kuota</h3>
       <div class="overflow-x-auto">
         <table class="min-w-full bg-white shadow rounded-lg">
           <thead class="bg-pink-500 text-white">
@@ -88,37 +105,52 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b hover:bg-pink-100">
-              <td class="py-2 px-4">Telkomsel</td>
-              <td class="py-2 px-4">0>-</td>
-              <td class="py-2 px-4">2.000</td>
-            </tr>
-            <tr class="border-b hover:bg-pink-100">
-              <td class="py-2 px-4">Indosat</td>
-              <td class="py-2 px-4"><50.000,>50.000</td>
-              <td class="py-2 px-4"><3.000,>Rp.2.000</td>
-            </tr>
-            <tr class="hover:bg-pink-100">
-              <td class="py-2 px-4">XL</td>
-              <td class="py-2 px-4">0>-</td>
-              <td class="py-2 px-4">2.000</td>
-            </tr>
-            <tr class="hover:bg-pink-100">
-              <td class="py-2 px-4">SmartFren</td>
-              <td class="py-2 px-4">0>-</td>
-              <td class="py-2 px-4">2.000</td>
-            </tr>
-            <tr class="hover:bg-pink-100">
-              <td class="py-2 px-4">E-WAllet</td>
-              <td class="py-2 px-4"><300.000></td>
-              <td class="py-2 px-4">3.000<>5.000</td>
-            </tr>
-            <tr class="hover:bg-pink-100">
-              <td class="py-2 px-4"><b>Khusus Go-Pay admin +1000</b></td>
-            <tr class="hover:bg-pink-100">
-              <td class="py-2 px-4"><b>Untuk Admin TF bisa tanya ke Penjaga Konter</b></td>
-            </tr>
-            </tr>
+<tr class="border-b hover:bg-pink-100">
+  <td class="py-2 px-4">Telkomsel</td>
+  <td class="py-2 px-4">5.000 - 200.000</td>
+  <td class="py-2 px-4">2.000</td>
+</tr>
+<tr class="border-b hover:bg-pink-100">
+  <td class="py-2 px-4">Indosat</td>
+  <td class="py-2 px-4">&lt; 50.000: 3.000<br>&ge; 50.000: 2.000</td>
+  <td class="py-2 px-4">Varies</td>
+</tr>
+<tr class="border-b hover:bg-pink-100">
+  <td class="py-2 px-4">XL</td>
+  <td class="py-2 px-4">5.000 - 200.000</td>
+  <td class="py-2 px-4">2.000</td>
+</tr>
+<tr class="border-b hover:bg-pink-100">
+  <td class="py-2 px-4">Smartfren</td>
+  <td class="py-2 px-4">5.000 - 200.000</td>
+  <td class="py-2 px-4">2.000</td>
+</tr>
+<tr class="border-b hover:bg-pink-100">
+  <td class="py-2 px-4">E-Wallet</td>
+  <td class="py-2 px-4">&le; 300.000</td>
+  <td class="py-2 px-4">3.000 - 5.000</td>
+</tr>
+<tr class="bg-pink-100 font-semibold">
+  <td colspan="3" class="py-2 px-4 text-center">Khusus GoPay dikenakan tambahan admin Rp 1.000</td>
+</tr>
+<tr class="bg-pink-100 font-semibold">
+  <td colspan="3" class="py-2 px-4 text-center">Untuk admin transfer, silakan tanya ke penjaga konter</td>
+</tr>
+
+<section id="cek-operator" class="py-12 bg-blue-50 fade-in px-4">
+  <div class="container mx-auto text-center">
+    <h3 class="text-2xl font-semibold mb-4 text-blue-700">Cek Operator Nomor HP</h3>
+    <input
+      type="text"
+      id="nomorHP"
+      placeholder="Masukkan nomor HP (contoh: 0857...)"
+      class="p-2 border rounded-md w-full max-w-sm"
+    />
+    <p id="hasilOperator" class="mt-4 text-lg font-bold text-green-600"></p>
+  </div>
+</section>
+
+
           </tbody>
         </table>
       </div>
@@ -177,6 +209,47 @@
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
     });
+    document.getElementById("nomorHP").addEventListener("input", function () {
+  const prefix = this.value.slice(0, 4);
+  const operatorMap = {
+    "0811": "Telkomsel (Kartu Halo)",
+    "0812": "Telkomsel (Simpati)",
+    "0813": "Telkomsel",
+    "0821": "Telkomsel (Loop)",
+    "0822": "Telkomsel (Loop)",
+    "0823": "Telkomsel (Kartu AS)",
+    "0852": "Telkomsel (AS)",
+    "0853": "Telkomsel (AS)",
+    "0851": "By.U",
+    "0857": "Indosat (IM3)",
+    "0856": "Indosat (Matrix)",
+    "0858": "Indosat (Mentari)",
+    "0814": "Indosat (M2 Broadband)",
+    "0815": "Indosat",
+    "0816": "Indosat",
+    "0817": "XL",
+    "0818": "XL",
+    "0819": "XL",
+    "0859": "XL",
+    "0877": "XL (Axis)",
+    "0878": "XL (Axis)",
+    "0881": "Smartfren",
+    "0882": "Smartfren",
+    "0883": "Smartfren",
+    "0884": "Smartfren",
+    "0885": "Smartfren",
+    "0886": "Smartfren",
+    "0887": "Smartfren",
+    "0888": "Smartfren",
+    "0889": "Smartfren",
+    "0895": "Tri",
+    "0896": "Tri"
+  };
+
+  const hasil = operatorMap[prefix] || "Operator tidak ditemukan / prefix tidak valid";
+  document.getElementById("hasilOperator").textContent = hasil;
+});
+
   </script>
 </body>
 </html>
